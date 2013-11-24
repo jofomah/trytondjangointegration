@@ -1,0 +1,36 @@
+{%  extends 'base.html' %}
+{% block title %}Tryton-Django-Proteus Integration{% endblock %}
+{% block body %}
+    <div class="container">
+     <ul class="nav nav-pills">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/party/">Party</a></li>
+        <li><a href="/party/add/">Add Party</a></li>
+        <li><a href="/module/">View Modules</a></li>
+    </ul>
+    <h4>Tryton Django Integration</h4>
+        <p>
+            This is just a proof of concept that shows how Tryton ERP server can be integrated with a Django Web client,
+            While Proteus acts as the connector between the two.
+        </p>
+
+        <p>
+            This project has just party and module web interface,
+
+            <ul>
+                <li><b>Party</b>: This is used to represent anything you want to see as an entity in your system,
+                    it can be used to model a supplier, customer, organisation, etc. Party has the following properties,
+                    Name, code(a tag), language, address(which can be more than one, though we made provision for just one
+                    in this sample app)
+                </li>
+        </p>
+        <p>
+                <li>
+                    <b>Module</b>: This is just a simple module manager interface that can be used to install Trytond
+                    modules that have been installed on the Tryton server module folder via
+                    <code>pip install trytond-module-name</code>.
+                </li>
+            </ul>
+        </p>
+    </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{%  extends 'base.html' %}
+{% block title %}Available Modules{% endblock %}
+{% block body %}
+    <div class="container">
+     <ul class="nav nav-pills">
+         <li><a href="/">Home</a></li>
+        <li><a href="/party/">Party</a></li>
+        <li><a href="/party/add/">Add Party</a></li>
+        <li class="active"><a href="/module/">View Modules</a></li>
+    </ul>
+    <h4></h4>
+    {% if module_list %}
+        <table class="table table-hover">
+            <thead>
+                <th>Module Name</th>
+                <th>Module Version</th>
+                <th>State</th>
+                <th>Install Module</th>
+            </thead>
+        {% for module in module_list %}
+            <tr>
+                <td>{{module.name}}</td>
+                <td>{{module.version}}</td>
+                <td>{{module.state}}</td>
+                <td><a href="install/{{module.id}}">Install Module</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No module(s) are available.</p>
+    {% endif %}
+    </div>
+{% endblock %}

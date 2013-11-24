@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Add Party{% endblock %}
+{% block body %}
+<div class="container">
+    <ul class="nav nav-pills">
+         <li><a href="/">Home</a></li>
+        <li><a href="/party/">Party</a></li>
+        <li class="active"><a href="/party/add/">Add Party</a></li>
+        <li><a href="/module/">View Modules</a></li>
+    </ul><br/>
+    <h4>Add New Party</h4><br/>
+    {% if exception_msg %}
+        <div class="alert alert-danger">
+            <p>{{exception_msg}}</p>
+        </div>
+    {% endif %}
+
+    <form action="" method="POST">{% csrf_token %}
+        <table>
+            {{ form.as_table }}
+
+        <tr>
+            <td><label for="add_party"></label></td>
+            <td><input class="btn btn-default" type="submit" id="add_party" value="Add Party" name="add_party"></td>
+        </tr>
+    </table>
+
+    </form>
+</div>
+{% endblock %}

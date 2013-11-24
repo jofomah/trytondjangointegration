@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}Party Detail{% endblock %}
+{% block body %}
+<div class="container">
+    <ul class="nav nav-pills">
+         <li><a href="/">Home</a></li>
+        <li><a href="/party/">Party</a></li>
+        <li><a href="/party/add/">Add Party</a></li>
+        <li><a href="/module/">View Modules</a></li>
+    </ul>
+    {% if party %}
+        <h4>Party info</h4>
+        <table class="table table-hover">
+            <thead>
+                <th>Party Id</th>
+                <th>Party Name</th>
+                <th>Party Code</th>
+                <th>Party Language</th>
+            </thead>
+            <tr>
+                <td>{{party.id}}</td>
+                <td>{{party.name}}</td>
+                <td>{{party.code}}</td>
+                <td>{{party.lang.name}}</td>
+            </tr>
+        </table>
+
+        <h4>Contact info</h4>
+        <table border="1" class="table table-bordered">
+            {% for address in party.addresses%}
+            {% if address.name %}
+            <thead>
+                <th>Address Name</th>
+                <th>Street</th>
+                <th>Zip</th>
+                <th>City</th>
+                <th>Country</th>
+            </thead>
+            <tr>
+                <td>{{address.name}}</td>
+                <td>{{address.street}}</td>
+                <td>{{address.zip}}</td>
+                <td>{{address.city}}</td>
+                <td>{{address.country.name}}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Party not found, <a href="/party">view parties</a></p>
+    {% endif %}
+    </div>
+{% endblock %}

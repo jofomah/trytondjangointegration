@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Parties{% endblock %}
+{% block body %}
+<body>
+<div class="container">
+    <ul class="nav nav-pills">
+         <li><a href="/">Home</a></li>
+        <li class="active"><a href="/party/">Party</a></li>
+        <li><a href="/party/add/">Add Party</a></li>
+         <li><a href="/module/">View Modules</a></li>
+    </ul>
+    <h4>Registered parties</h4>
+    {% if party_list %}
+        <table class="table table-hover">
+            <thead>
+                <th class="column">Party Name</th>
+            </thead>
+            {% for party in party_list %}
+                <tr>
+                    <td><a href="/party/{{party.id}}/">{{ party.name }}</a></td>
+                     <td><a href="/party/remove/{{party.id}}/">remove party</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No parties are available.</p>
+    {% endif %}
+</div>
+{% endblock %}
